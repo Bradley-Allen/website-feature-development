@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ch4 Assignment</title>
+	</head>
+	<body>
+		<div id="content">
+			<button class="redButton" onmouseover="onRedHover()"onclick="onRedClick()">RED</button>
+			<button class="greenButton" onmouseover="onGreenHover()" onclick="onGreenClick()">GREEN</button>
+			<button class="blueButton" onmouseover="onBlueHover()" onclick="onBlueClick()">BLUE</button>
+			
+			<div id="counters">
+				<div id="redCounter">
+					<h2>RED count: <a id="red_counter">0</a> --- Button changed colors: <a id="red_counter_change">0</a> times</h2>
+				</div>
+				<div id="greenCounter">
+					<h2>GREEN count: <a id="green_counter">0</a> --- Button changed colors: <a id="green_counter_change">0</a> times</h2>
+				</div>
+				<div id="blueCounter">
+					<h2>BLUE count: <a id="blue_counter">0</a> --- Button changed colors: <a id="blue_counter_change">0</a> times</h2>
+				</div>
+			</div>
+		</div>
+		
+		<style>
+			body {
+				background-color: white;
+			}
+			
+			#content {
+				text-align: center;
+				float: center;
+			}
+			
+			.redButton {
+				border: none;
+				color: white;
+				padding: 5% 6%;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 0 auto;
+				background-color: black;
+			}
+			
+			.redButton:hover {
+				background-color: white;
+				color: black;
+			}
+			
+			.greenButton {
+				border: none;
+				color: white;
+				padding: 5% 6%;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 0 auto;
+				background-color: black;
+			}
+			
+			.greenButton:hover {
+				background-color: white;
+				color: black;
+			}
+			
+			.blueButton {
+				border: none;
+				color: white;
+				padding: 5% 6%;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 0 auto;
+				background-color: black;
+			}
+			
+			.blueButton:hover {
+				background-color: white;
+				color: black;
+			}
+
+		</style>
+		
+		<script type="text/javascript">
+			var red_counter = 0, green_counter = 0, blue_counter = 0, red_counter_change = 0, green_counter_change = 0, blue_counter_change = 0;
+			
+			// Handles click counters
+			function onRedClick() {
+				changeColor("red")
+				red_counter += 1;
+				document.getElementById("red_counter").innerHTML = red_counter;
+			}
+			function onGreenClick() {
+				changeColor("green")
+				green_counter += 1;
+				document.getElementById("green_counter").innerHTML = green_counter;
+			}
+			function onBlueClick() {
+				changeColor("blue")
+				blue_counter += 1;
+				document.getElementById("blue_counter").innerHTML = blue_counter;
+			}
+			function changeColor(color) {
+				document.body.style.background = color;
+			}
+			
+			// Handles hover counters
+			function onRedHover() {
+				red_counter_change += 1;
+				document.getElementById("red_counter_change").innerHTML = red_counter_change;
+			}
+			function onGreenHover() {
+				green_counter_change += 1;
+				document.getElementById("green_counter_change").innerHTML = green_counter_change;
+			}
+			function onBlueHover() {
+				blue_counter_change += 1;
+				document.getElementById("blue_counter_change").innerHTML = blue_counter_change;
+			}
+		</script>
+	</body>
+	<footer>
+		<a style="text-decoration: none; font-style: italic; color: gray;" href="index.html">[Return Home]</a>
+	</footer>
+</html>

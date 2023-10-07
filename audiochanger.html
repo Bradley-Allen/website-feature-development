@@ -1,0 +1,112 @@
+<!--audiochanger.html-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+		<title>Audio Changer</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script>
+			titles = new Array();
+			times = new Array();
+			var i = 0;
+			var currentTitle = null;
+			
+			function rewindFive() {
+				var audio = document.getElementById("audio");
+				audio.currentTime -= 5;
+			}
+			function forwardFive() {
+				var audio = document.getElementById("audio");
+				audio.currentTime += 5;
+			}
+			function createTitle(){
+				audio.pause();
+				var titleName = prompt("Enter the name of the new title:");
+				titles[i] = titleName;
+				times[i] = audio.currentTime;
+				alert("New title: \"" + titles[i] + "\" set at " + Math.round(times[i]) + " seconds.");
+				document.getElementById("titleArea").innerHTML += "<button id=\"" + titles[i] + "\"style=\"padding: 1%; margin: 0.5%;\"onclick=\"playTitle(" + times[i] + ");\">" + titles[i] + "</button>"
+				currentTitle = titles[i];
+				++i;
+				audio.play();
+			}
+			function playTitle(timeStop) {
+				var audio = document.getElementById("audio");
+				currentTitle = document.getElementById(titles[times.indexOf(timeStop)]).innerHTML;
+				audio.currentTime = timeStop;
+				audio.play();
+				
+				/* To play the length of the title, from 0 seconds to stop time.
+				audio.currentTime = 0;
+				audio.play();
+				var intID = setInterval(function() {
+					if (audio.currentTime >= timeStop) {
+						audio.pause();
+						clearInterval(intID);
+					}
+				}, 500);
+				*/
+			}
+			function deleteTitle() {
+				if (currentTitle == null) {
+					alert("Please click a title to remove it.");
+				} else {
+					document.getElementById(currentTitle).remove();
+				}
+				audio.pause();
+			}
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>Bradley's CSCI 450 Website</h1>
+			</div>
+			<div id="content">
+				<nav>
+					<h3>Navigation</h3>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Paper.html">Tech Trends Paper</a></li>
+						<li><a href="Contact.html">Contact</a></li>
+						<li><a href="layout.html">Layout Practice</a></li>
+						<li><a href="chapter04.html">Color Buttons</a></li>
+						<li><a href="helloworld.php">Hello World</a></li>
+						<li><a href="ButtonMove.html">Moving Buttons</a></li>
+						<li><a href="sort.html">Sort Demo</a></li>
+						<li><a href="businesscard.html">Card Demo</a></li>
+						<li><a href="dynamiccarddemo.html">Dynamic Card Demo</a></li>
+						<li><a href="keypress.html">KeyPress Demo</a></li>
+						<li><a href="jquerydemo.html">JQuery Demo</a></li>
+						<li><a class="selected" href="audiochanger.html">Audio Demo</a></li>
+						<li><a href="prime.html">Prime Numbers</a></li>
+						<li><a href="livesearch.html">Live Searching</a></li>
+						<li><a href="vowelsort.php">Vowel Sort</a></li>
+						<li><a href="personrecords.php">Person Records</a></li>
+						<li><a href="topiclist.php">Forums</a></li>
+					</ul>
+				</nav>
+				<div id="main">
+					<h2>ArrivalofTheBirds.mp3</h2>
+					
+					<audio controls id="audio" preload="auto" src="ArrivalofTheBirds.mp3" >
+						<p>Your browser does not support the audio element</p>
+					</audio><br>
+					<button style="border-radius: 30%;" id="btn-rewind" onclick="rewindFive()"><span style="font-size: 20px;" class="iconify" data-icon="carbon:rewind-5"></span></button>
+					<button style="border-radius: 30%;" id="btn-fastforward" onclick="forwardFive()"><span style="font-size: 20px;" class="iconify" data-icon="carbon:forward-5"></span></button>
+					<button id="btn-newtitle" onclick="createTitle()">Create new title</button>
+					<button id="btn-removetitle" onclick="deleteTitle()">Remove current title</button>
+					<h2>Titles:</h2>
+					<div id="titleArea">
+					
+					</div>
+					
+				</div>
+			</div>
+			<div id="footer">
+				USC Upstate CSCI450 Summer 2022
+			</div>
+		</div>
+	</body>
+</html>

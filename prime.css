@@ -1,0 +1,25 @@
+/*prime.css*/
+
+#leftSideContent {
+	float: left;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5%;
+}
+
+#rightSideContent {
+	float: right;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5%;
+}
+
+#primeList {
+	color: orange;
+	padding-bottom: 5%;
+}
+
+#nonPrimeList {
+	color: blue;
+	padding-bottom: 5%;
+}

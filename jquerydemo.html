@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery Demo</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#div1").mouseenter(function(){
+					document.getElementById("div1").style.background = "yellow";
+				});
+				$("#div1").mouseleave(function(){
+					document.getElementById("div1").style.background = "white";
+				});
+				$("#div2").mouseenter(function(){
+					document.getElementById("div2").style.background = "yellow";
+				});
+				$("#div2").mouseleave(function(){
+					document.getElementById("div2").style.background = "white";
+				});
+				$("#div3").mouseenter(function(){
+					document.getElementById("div3").style.background = "yellow";
+				});
+				$("#div3").mouseleave(function(){
+					document.getElementById("div3").style.background = "white";
+				});
+				$("#fadediv1").click(function() {
+					$(document.getElementById("div1")).fadeToggle("slow");
+				});
+				$("#fadediv2").click(function() {
+					$(document.getElementById("div2")).fadeToggle("slow");
+				});
+				$("#fadediv3").click(function() {
+					$(document.getElementById("div3")).fadeToggle("slow");
+				});
+				$( function() {
+					$( "#datepicker" ).datepicker();
+				});
+				$( function() {
+					$( "#accordion" ).accordion({
+						collapsible: true,
+						active: false
+					});
+				});
+				$(function() {
+					pl = $( ".pbc" );
+					var pb = $( "#pbid" );
+					$( "#pbid" ).progressbar({
+						value: false,
+						change: function() {
+							pl.text(
+							pb.progressbar( "value" ) + "%" );
+						},
+						complete: function() {
+							pl.text( "100%" );
+						}
+					});
+					function progress() {
+						var v = pb.progressbar( "value" ) || 0;
+						pb.progressbar( "value", v + 1 );
+						if ( v < 99 ) {
+							setTimeout( progress, 200 );
+						}
+					}
+					setTimeout( progress, 3000 );
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1>Bradley's CSCI 450 Website</h1>
+			</div>
+			<div id="content">
+				<nav>
+					<h3>Navigation</h3>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Paper.html">Tech Trends Paper</a></li>
+						<li><a href="Contact.html">Contact</a></li>
+						<li><a href="layout.html">Layout Practice</a></li>
+						<li><a href="chapter04.html">Color Buttons</a></li>
+						<li><a href="helloworld.php">Hello World</a></li>
+						<li><a href="ButtonMove.html">Moving Buttons</a></li>
+						<li><a href="sort.html">Sort Demo</a></li>
+						<li><a href="businesscard.html">Card Demo</a></li>
+						<li><a href="dynamiccarddemo.html">Dynamic Card Demo</a></li>
+						<li><a href="keypress.html">KeyPress Demo</a></li>
+						<li><a class="selected" href="jquerydemo.html">JQuery Demo</a></li>
+						<li><a href="audiochanger.html">Audio Demo</a></li>
+						<li><a href="prime.html">Prime Numbers</a></li>
+						<li><a href="livesearch.html">Live Searching</a></li>
+						<li><a href="vowelsort.php">Vowel Sort</a></li>
+						<li><a href="personrecords.php">Person Records</a></li>
+						<li><a href="topiclist.php">Forums</a></li>
+					</ul>
+				</nav>
+				<div id="main">
+					<div id = "pbid">
+						<div class = "pbc">
+							Loading...
+						</div>
+					</div>
+					<button id="fadediv1">Fade div 1</button>
+					<button id="fadediv2">Fade div 2</button>
+					<button id="fadediv3">Fade div 3</button>
+					
+					<div id="div1" style="border: 1px solid black;">
+						<p>A paragraph in a div.</p>
+						<p>Another paragraph in a div.</p>
+					</div>
+					<br>
+					<div id="div2" style="border: 1px solid black;">
+						<p>A paragraph in another div.</p>
+						<p>Another paragraph in another div.</p>
+					</div>
+					<br>
+					<div id="div3" style="border: 1px solid black;">
+						<p>A paragraph in another div.</p>
+						<p>Another paragraph in another div.</p>
+					</div>
+					<p>Date: <input type="text" id="datepicker"></p>
+					<div id="accordion">
+						<h3>Section 1</h3>
+						<div>
+							<p>
+							Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+							ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+							amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+							odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+							</p>
+						</div>
+						<h3>Section 2</h3>
+						<div>
+							<p>
+							Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+							purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+							velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+							suscipit faucibus urna.
+							</p>
+						</div>
+						<h3>Section 3</h3>
+						<div>
+							<p>
+							Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+							Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+							ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+							lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+							</p>
+							<ul>
+							  <li>List item one</li>
+							  <li>List item two</li>
+							  <li>List item three</li>
+							</ul>
+						</div>
+						<h3>Section 4</h3>
+						<div>
+							<p>
+							Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+							et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+							faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+							mauris vel est.
+							</p>
+							<p>
+							Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+							Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+							inceptos himenaeos.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				USC Upstate CSCI450 Summer 2022
+			</div>
+		</div>
+	</body>
+</html>
